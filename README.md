@@ -25,7 +25,7 @@ see all the messages being published to that topic.
         --function-name lambda-echo \
         --log-type Tail \
         --payload '{ "message" : "hello, world" }' \
-        $outfile > $logfile
+        $responsefile > $logfile
 
     cat $logfile | jq -r '.LogResult' |
       base64-decode 
