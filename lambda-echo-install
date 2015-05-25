@@ -35,6 +35,9 @@
       --policy-name "$lambda_function_name-policy" \
       --policy-document "file://$lambda_execution_policy_file"
 
+    # Seems to be some timing issue here
+    sleep 10
+
 ## Create the function and upload the ZIP file
 
     aws lambda create-function \
