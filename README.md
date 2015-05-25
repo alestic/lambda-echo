@@ -18,17 +18,12 @@ see all the messages being published to that topic.
 
 ## Test
 
-    responsefile=$(mktemp /tmp/lambda-echo-response.XXXXXX)
-    logfile=$(mktemp /tmp/lambda-echo-log.XXXXXX)
+    sudo apt-get install jq # For JSON Parsing
 
     aws lambda invoke \
         --function-name lambda-echo \
         --log-type Tail \
         --payload '{ "message" : "hello, world" }' \
-        $responsefile > $logfile
-
-    cat $logfile | jq -r '.LogResult' |
+        /dev/null |
+      jq -r '.LogResult' |
       base64-decode 
-
-    cat $responsefile
-    rm $responsefile $logfile
