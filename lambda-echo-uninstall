@@ -1,0 +1,22 @@
+#!/bin/bash -x
+#
+# Install AWS Lambda function: lambda-echo 
+#
+
+## Setup
+
+    lambda_function_name=lambda-echo
+    lambda_assume_role_policy_file=$lambda_function_name-assume-role-policy.json
+    lambda_execution_policy_file=$lambda_function_name-execution-policy.json
+
+    aws lambda delete-function \
+      --function-name "$lambda_function_name"
+
+    aws iam delete-role-policy \
+      --role-name "$lambda_function_name-role" \
+      --policy-name "$lambda_function_name-policy"
+
+    aws iam delete-role \
+      --role-name "$lambda_function_name-role"
+
+exit 0
