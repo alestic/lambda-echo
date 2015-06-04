@@ -4,6 +4,10 @@
     {
       "Effect": "Allow",
       "Action": [
+        "kinesis:DescribeStream",
+        "kinesis:GetRecords",
+        "kinesis:GetShardIterator",
+        "kinesis:ListStreams",
         "logs:*"
       ],
       "Resource": "arn:aws:logs:*:*:*"
