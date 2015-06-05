@@ -1,16 +1,19 @@
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
+  "Statement": [ {
+      "Effect": "Allow",
+      "Action": [
+        "logs:*"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }, {
       "Effect": "Allow",
       "Action": [
         "kinesis:DescribeStream",
         "kinesis:GetRecords",
         "kinesis:GetShardIterator",
-        "kinesis:ListStreams",
-        "logs:*"
+        "kinesis:ListStreams"
       ],
-      "Resource": "arn:aws:logs:*:*:*"
-    }
-  ]
+      "Resource": "arn:aws:kinesis:*:*:*"
+  } ]
 }
